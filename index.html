@@ -270,6 +270,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
+            border: none;
+            background: none;
         }
 
         .image-link:hover {
@@ -296,7 +298,7 @@
 
         /* Click hint text */
         .image-link::after {
-            content: "🔍 Click to view larger";
+            content: "🔍 Click to enlarge";
             position: absolute;
             bottom: 20px;
             left: 50%;
@@ -314,6 +316,91 @@
 
         .image-link:hover::after {
             opacity: 1;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            width: auto;
+            max-width: 90%;
+            max-height: 90vh;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close:hover {
+            color: #fdbb2d;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: translateY(-50%) scale(0.8); opacity: 0; }
+            to { transform: translateY(-50%) scale(1); opacity: 1; }
+        }
+
+        /* Loading spinner */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.5rem;
         }
         
         /* Contact Form */
@@ -431,6 +518,25 @@
                 padding: 6px 12px;
                 bottom: 15px;
             }
+
+            .modal-content {
+                max-width: 95%;
+                max-height: 85vh;
+            }
+
+            .close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .modal-caption {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+                bottom: 10px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -478,7 +584,7 @@
             }
             
             .image-link::after {
-                content: "🔍 View larger";
+                content: "🔍 Enlarge";
                 font-size: 0.75rem;
                 padding: 5px 10px;
                 bottom: 10px;
@@ -505,12 +611,19 @@
     
     <section class="hero">
         <div class="brochure-frame">
-            <!-- Clickable image -->
-            <a href="brochure.jpg" target="_blank" class="image-link" title="Click to view larger image">
+            <!-- Clickable image that opens modal -->
+            <button class="image-link" onclick="openModal()">
                 <img src="brochure.jpg" alt="ICOMAA Conference Brochure" />
-            </a>
+            </button>
         </div>
     </section>
+    
+    <!-- Modal Popup -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" src="brochure.jpg" alt="ICOMAA Conference Brochure">
+        <div class="modal-caption">ICOMAA Conference Brochure - Press ESC or click outside to close</div>
+    </div>
     
     <main class="container">
         <section id="upcoming">
@@ -557,5 +670,40 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Modal functions
+        function openModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside the image
+        document.getElementById('imageModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Preload image for smoother experience
+        window.addEventListener('load', function() {
+            const img = new Image();
+            img.src = 'brochure.jpg';
+        });
+    </script>
 </body>
 </html>
