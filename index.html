@@ -6,7 +6,7 @@
     <title>ICOMAA Seminar Series</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* All your CSS styles remain exactly the same */
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -32,6 +32,7 @@
             max-width: 1200px;
         }
         
+        /* Header Styles */
         header {
             background: #1a2a6c;
             color: white;
@@ -51,6 +52,7 @@
             opacity: 0.9;
         }
         
+        /* Navigation */
         nav {
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -85,6 +87,7 @@
             color: #1a2a6c;
         }
         
+        /* Main Content */
         main {
             padding: 3rem 0;
             width: 100%;
@@ -137,6 +140,7 @@
             transform: translateY(-2px);
         }
         
+        /* Upcoming Seminar Highlight */
         .upcoming-seminar {
             background: linear-gradient(135deg, #1a2a6c, #b21f1f);
             color: white;
@@ -188,6 +192,7 @@
             margin-top: 1.5rem;
         }
         
+        /* Footer */
         footer {
             background-color: #1a2a6c;
             color: white;
@@ -239,33 +244,44 @@
             color: #ccc;
         }
         
+        /* Hero Section - Enhanced minimal design */
         .hero {
-            background: #f0f0f0; 
-            padding: 30px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px 0;
             margin-bottom: 3rem;
-            border-bottom: 5px solid #1a2a6c;
             text-align: center;
             width: 100%;
+            border-bottom: 3px solid #1a2a6c;
         }
 
+        /* Subtle container for the brochure */
         .brochure-frame {
-            background-color: white; 
-            padding: 20px; 
-            border-radius: 10px; 
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
-            display: inline-block; 
-            max-width: 90%; 
-            box-sizing: border-box;
+            background: transparent;
+            padding: 15px;
+            display: inline-block;
+            max-width: 90%;
+            border-radius: 8px;
         }
 
+        /* Image with subtle enhancements */
         .hero img {
-            max-width: 100%; 
-            height: auto; 
-            display: block; 
-            margin: 0 auto; 
-            max-height: 80vh;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            max-height: 75vh;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Subtle hover effect for interactivity */
+        .hero img:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
         
+        /* Contact Form */
         .contact-form {
             background-color: white;
             padding: 2rem;
@@ -328,6 +344,7 @@
             color: #fdbb2d;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .upcoming-content {
                 flex-direction: column;
@@ -365,6 +382,14 @@
             header p {
                 font-size: 1rem;
             }
+            
+            .hero {
+                padding: 30px 0;
+            }
+            
+            .hero img {
+                max-height: 60vh;
+            }
         }
         
         @media (max-width: 480px) {
@@ -397,6 +422,19 @@
                 padding: 0.6rem 1.2rem;
                 font-size: 0.9rem;
             }
+            
+            .hero {
+                padding: 20px 0;
+            }
+            
+            .hero img {
+                max-height: 50vh;
+            }
+            
+            .brochure-frame {
+                padding: 10px;
+                max-width: 95%;
+            }
         }
     </style>
 </head>
@@ -419,7 +457,6 @@
     
     <section class="hero">
         <div class="brochure-frame">
-            <!-- UPDATED IMAGE SOURCE - now using local file -->
             <img src="brochure.jpg" alt="ICOMAA Conference Brochure" />
         </div>
     </section>
