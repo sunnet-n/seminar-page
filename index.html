@@ -261,6 +261,19 @@
             display: inline-block;
             max-width: 90%;
             border-radius: 8px;
+            position: relative;
+        }
+
+        /* Image link styling */
+        .image-link {
+            display: block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .image-link:hover {
+            opacity: 0.95;
         }
 
         /* Image with subtle enhancements */
@@ -275,10 +288,32 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Subtle hover effect for interactivity */
-        .hero img:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        /* Enhanced hover effects */
+        .image-link:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Click hint text */
+        .image-link::after {
+            content: "🔍 Click to view larger";
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 42, 108, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .image-link:hover::after {
+            opacity: 1;
         }
         
         /* Contact Form */
@@ -390,6 +425,12 @@
             .hero img {
                 max-height: 60vh;
             }
+            
+            .image-link::after {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+                bottom: 15px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -435,6 +476,13 @@
                 padding: 10px;
                 max-width: 95%;
             }
+            
+            .image-link::after {
+                content: "🔍 View larger";
+                font-size: 0.75rem;
+                padding: 5px 10px;
+                bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -457,7 +505,10 @@
     
     <section class="hero">
         <div class="brochure-frame">
-            <img src="brochure.jpg" alt="ICOMAA Conference Brochure" />
+            <!-- Clickable image -->
+            <a href="brochure.jpg" target="_blank" class="image-link" title="Click to view larger image">
+                <img src="brochure.jpg" alt="ICOMAA Conference Brochure" />
+            </a>
         </div>
     </section>
     
