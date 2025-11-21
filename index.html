@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ICOMAA Seminar Series - Advanced Mathematical Applications</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,11 +13,13 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 100%; /* Prevent horizontal overflow */
         }
         
         html {
             font-size: 100%;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
         body {
@@ -25,20 +27,23 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
         
         .container {
-            width: 90%; 
+            width: 95%; 
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
             max-width: 1200px;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
         
         /* Header Styles */
         header {
             background: linear-gradient(135deg, #1a2a6c 0%, #2c3e8f 100%);
             color: white;
-            padding: 3rem 0;
+            padding: 2.5rem 0;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -58,16 +63,18 @@
         }
         
         header h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 0.5rem;
             font-weight: 700;
+            overflow-wrap: break-word;
         }
         
         header p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
+            overflow-wrap: break-word;
         }
         
         /* Navigation */
@@ -86,10 +93,11 @@
             justify-content: center;
             list-style: none;
             padding: 1rem 0;
+            flex-wrap: wrap;
         }
         
         nav li {
-            margin: 0 1.5rem;
+            margin: 0.3rem 0.8rem;
         }
         
         nav a {
@@ -99,6 +107,8 @@
             padding: 0.5rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            overflow-wrap: break-word;
         }
         
         nav a:hover {
@@ -109,17 +119,20 @@
         
         /* Main Content */
         main {
-            padding: 3rem 0;
+            padding: 2.5rem 0;
             width: 100%;
+            overflow-x: hidden;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             color: #1a2a6c;
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             position: relative;
             font-weight: 700;
+            overflow-wrap: break-word;
+            padding: 0 10px;
         }
         
         .section-title:after {
@@ -134,7 +147,7 @@
         
         .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
@@ -144,6 +157,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            overflow-wrap: break-word;
         }
         
         .btn-primary {
@@ -168,19 +183,21 @@
             box-shadow: 0 6px 20px rgba(253, 187, 45, 0.4);
         }
         
-        /* Upcoming Seminar Highlight */
+        /* Upcoming Seminar Highlight - MOBILE FIXED */
         .upcoming-seminar {
             background: linear-gradient(135deg, #1a2a6c, #b21f1f);
             color: white;
-            padding: 3rem;
+            padding: 2rem;
             border-radius: 15px;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             position: relative;
             width: 100%;
             overflow-wrap: break-word;
             word-wrap: break-word;
             hyphens: auto;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         
         .upcoming-content {
@@ -188,26 +205,31 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
+            gap: 1rem;
         }
         
         .upcoming-text {
             flex: 1;
-            min-width: 300px;
+            min-width: 0; /* Crucial for flexbox text wrapping */
         }
         
         .upcoming-text h3 {
-            font-size: 2rem;
+            font-size: clamp(1.3rem, 4vw, 2rem);
             margin-bottom: 1rem;
             line-height: 1.3;
             overflow-wrap: break-word;
-            font-weight: 600;
+            word-wrap: break-word;
+            hyphens: auto;
+            word-break: break-word;
+            overflow: hidden;
         }
         
         .speaker-info {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             margin-bottom: 1rem;
             font-weight: 600;
             color: #fdbb2d;
+            overflow-wrap: break-word;
         }
         
         .seminar-details {
@@ -215,15 +237,21 @@
             background: rgba(255,255,255,0.1);
             padding: 1.5rem;
             border-radius: 10px;
+            overflow-wrap: break-word;
         }
         
         .seminar-details p {
             margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            overflow-wrap: break-word;
         }
         
         .upcoming-actions {
             margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: flex-start;
         }
 
         /* Countdown Timer */
@@ -232,6 +260,7 @@
             gap: 1rem;
             justify-content: center;
             margin: 2rem 0;
+            flex-wrap: wrap;
         }
 
         .countdown-item {
@@ -239,11 +268,11 @@
             padding: 1rem;
             border-radius: 10px;
             text-align: center;
-            min-width: 80px;
+            min-width: 70px;
         }
 
         .countdown-number {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: bold;
             display: block;
         }
@@ -257,7 +286,7 @@
         footer {
             background: linear-gradient(135deg, #1a2a6c, #0d1a4d);
             color: white;
-            padding: 3rem 0 1rem;
+            padding: 2.5rem 0 1rem;
             text-align: center;
             width: 100%;
         }
@@ -277,8 +306,9 @@
         
         .footer-section h4 {
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             color: #fdbb2d;
+            overflow-wrap: break-word;
         }
         
         .footer-section ul {
@@ -293,6 +323,7 @@
             color: #ddd;
             text-decoration: none;
             transition: color 0.3s ease;
+            overflow-wrap: break-word;
         }
         
         .footer-section a:hover {
@@ -305,12 +336,14 @@
             padding-top: 2rem;
             font-size: 0.9rem;
             color: #ccc;
+            overflow-wrap: break-word;
+            padding: 2rem 10px 0;
         }
         
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 4rem 0;
+            padding: 3rem 0;
             margin-bottom: 3rem;
             text-align: center;
             width: 100%;
@@ -319,9 +352,9 @@
 
         .brochure-frame {
             background: transparent;
-            padding: 20px;
+            padding: 15px;
             display: inline-block;
-            max-width: 90%;
+            max-width: 95%;
             border-radius: 15px;
             position: relative;
         }
@@ -333,6 +366,7 @@
             position: relative;
             border: none;
             background: none;
+            width: 100%;
         }
 
         .image-link:hover {
@@ -344,7 +378,7 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            max-height: 75vh;
+            max-height: 70vh;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -358,14 +392,14 @@
         .image-link::after {
             content: "🔍 Click to enlarge";
             position: absolute;
-            bottom: 25px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(26, 42, 108, 0.9);
             color: white;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 25px;
-            font-size: 1rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
             font-weight: 500;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -394,7 +428,7 @@
             margin: auto;
             display: block;
             width: auto;
-            max-width: 90%;
+            max-width: 95%;
             max-height: 90vh;
             top: 50%;
             transform: translateY(-50%);
@@ -405,17 +439,17 @@
 
         .close {
             position: absolute;
-            top: 25px;
-            right: 35px;
+            top: 20px;
+            right: 25px;
             color: white;
-            font-size: 45px;
+            font-size: 35px;
             font-weight: bold;
             cursor: pointer;
             z-index: 1001;
             transition: all 0.3s ease;
             background: rgba(0, 0, 0, 0.5);
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -430,15 +464,17 @@
 
         .modal-caption {
             position: absolute;
-            bottom: 25px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             color: white;
             background: rgba(0, 0, 0, 0.7);
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 25px;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             text-align: center;
+            overflow-wrap: break-word;
+            max-width: 90%;
         }
 
         @keyframes fadeIn {
@@ -454,17 +490,18 @@
         /* New Sections */
         .seminar-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .seminar-card {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            overflow-wrap: break-word;
         }
 
         .seminar-card:hover {
@@ -474,20 +511,21 @@
         .committee-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .member {
             text-align: center;
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow-wrap: break-word;
         }
 
         .member-avatar {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
@@ -499,21 +537,200 @@
         }
 
         .newsletter-form input {
-            padding: 15px;
+            padding: 12px;
             border: none;
             border-radius: 25px;
-            min-width: 300px;
+            min-width: 250px;
             font-size: 1rem;
+            width: 100%;
+            max-width: 400px;
         }
 
-        /* Responsive Design */
+        /* Mobile-Specific Fixes */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            header p { font-size: 1.1rem; }
-            .section-title { font-size: 2rem; }
-            .upcoming-text h3 { font-size: 1.6rem; }
-            .newsletter-form { flex-direction: column; }
-            .newsletter-form input { min-width: auto; width: 100%; margin-bottom: 1rem; }
+            .container {
+                width: 100%;
+                padding: 0 15px;
+            }
+            
+            header {
+                padding: 2rem 0;
+            }
+            
+            .hero {
+                padding: 2rem 0;
+            }
+            
+            .hero img {
+                max-height: 60vh;
+            }
+            
+            .upcoming-seminar {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+                border-radius: 12px;
+            }
+            
+            .upcoming-text h3 {
+                font-size: 1.4rem;
+                line-height: 1.3;
+                text-align: center;
+            }
+            
+            .speaker-info {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+            
+            .seminar-details {
+                padding: 1rem;
+            }
+            
+            .seminar-details p {
+                font-size: 0.95rem;
+                text-align: center;
+            }
+            
+            .upcoming-actions {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .upcoming-actions .btn {
+                width: 100%;
+                max-width: 280px;
+                margin: 0.5rem 0;
+            }
+            
+            .countdown {
+                gap: 0.5rem;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 0.8rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .newsletter-form input {
+                min-width: auto;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .modal-content {
+                max-width: 98%;
+                max-height: 85vh;
+            }
+
+            .close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .modal-caption {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+                bottom: 10px;
+            }
+            
+            .image-link::after {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+                bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .upcoming-seminar {
+                padding: 1.2rem;
+                margin: 0 -5px 2rem -5px;
+                border-radius: 10px;
+                width: calc(100% + 10px);
+            }
+            
+            .upcoming-text h3 {
+                font-size: 1.2rem;
+                line-height: 1.3;
+            }
+            
+            .speaker-info {
+                font-size: 1rem;
+            }
+            
+            .seminar-details {
+                padding: 0.8rem;
+            }
+            
+            .seminar-details p {
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .countdown-item {
+                min-width: 50px;
+                padding: 0.6rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.3rem;
+            }
+            
+            .brochure-frame {
+                padding: 10px;
+                max-width: 98%;
+            }
+            
+            .image-link::after {
+                content: "🔍 Enlarge";
+                font-size: 0.75rem;
+                padding: 5px 10px;
+                bottom: 10px;
+            }
+            
+            .section-title {
+                margin-bottom: 2rem;
+            }
+            
+            main {
+                padding: 2rem 0;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            nav li {
+                margin: 0.2rem 0.5rem;
+            }
+            
+            nav a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            
+            .upcoming-seminar {
+                padding: 1rem;
+            }
+            
+            .upcoming-text h3 {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -521,7 +738,7 @@
     <header>
         <div class="container">
             <h1>ICOMAA Seminar Series</h1>
-            <p>International Conference on Mathematical Advances and Applications</p>
+            <p>Advancing Mathematical Applications in Science and Engineering</p>
         </div>
     </header>
     
@@ -589,7 +806,10 @@
                         <div class="upcoming-actions">
                             <a href="https://online.yildiz.edu.tr/joinmeeting?meetingid=e979cb87-36eb-41be-9eb6-ac5dc862519c" class="btn btn-primary" target="_blank">
                                 <i class="fas fa-video"></i> Join Zoom Meeting
-                            </a>                            
+                            </a>
+                            <button class="btn btn-secondary" onclick="addToCalendar()" style="margin-left: 0;">
+                                <i class="fas fa-calendar-plus"></i> Add to Calendar
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -597,35 +817,40 @@
         </section>
 
         <!-- New Past Seminars Section -->
-        <section id="past-seminars" style="padding: 4rem 0;">
+        <section id="past-seminars" style="padding: 3rem 0;">
             <h2 class="section-title">Past Seminars</h2>
             <div class="seminar-grid">
                 <div class="seminar-card">
-                  <h3>Bernstein-Walch Theorem and on the Uniqueness Theorems of Entire Functions</h3>
-                    <p class="speaker" style="color: #666; margin: 0.5rem 0;">Prof. Dr. Djebbar BACHIR - USTO-MB, Algeria</p>
-                    <p class="date" style="color: #1a2a6c; font-weight: bold;">October 15, 2025</p>
+                    <h3>Mathematical Modeling in Epidemiology</h3>
+                    <p class="speaker" style="color: #666; margin: 0.5rem 0;">Dr. Ahmed Yılmaz - Istanbul University</p>
+                    <p class="date" style="color: #1a2a6c; font-weight: bold;">November 5, 2025</p>
+                </div>
+                <div class="seminar-card">
+                    <h3>AI Applications in Healthcare</h3>
+                    <p class="speaker" style="color: #666; margin: 0.5rem 0;">Prof. Maria Rodriguez - MIT</p>
+                    <p class="date" style="color: #1a2a6c; font-weight: bold;">October 8, 2025</p>
                 </div>
             </div>
         </section>
 
         <!-- New Committee Section -->
-        <section id="organizers" style="background: #f8f9fa; padding: 4rem 0; border-radius: 20px;">
+        <section id="organizers" style="background: #f8f9fa; padding: 3rem 0; border-radius: 15px; margin: 2rem 0;">
             <div class="container">
                 <h2 class="section-title">Organizing Committee</h2>
                 <div class="committee-grid">
                     <div class="member">
                         <div class="member-avatar">👨‍🏫</div>
-                        <h4>Prof. Dr. Yusuf ZEREN</h4>
+                        <h4>Prof. Dr. Mehmet Aydın</h4>
                         <p style="color: #666;">Conference Chair</p>
                     </div>
                     <div class="member">
                         <div class="member-avatar">👩‍🔬</div>
-                        <h4>Dr. Sunnet AVEZOV</h4>
+                        <h4>Dr. Ayşe Demir</h4>
                         <p style="color: #666;">Program Coordinator</p>
                     </div>
                     <div class="member">
                         <div class="member-avatar">👨‍💻</div>
-                        <h4>Dr. Elif DEMİR</h4>
+                        <h4>Dr. Carlos Silva</h4>
                         <p style="color: #666;">Technical Chair</p>
                     </div>
                 </div>
@@ -634,11 +859,11 @@
     </main>
 
     <!-- Newsletter Section -->
-    <section id="newsletter" style="background: linear-gradient(135deg, #1a2a6c, #fdbb2d); color: white; padding: 4rem 0;">
+    <section id="newsletter" style="background: linear-gradient(135deg, #1a2a6c, #fdbb2d); color: white; padding: 3rem 0;">
         <div class="container">
             <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <h2 style="margin-bottom: 1rem; font-size: 2.5rem;">Stay Updated</h2>
-                <p style="margin-bottom: 2rem; font-size: 1.2rem;">Get notified about upcoming seminars, workshops, and important announcements</p>
+                <h2 style="margin-bottom: 1rem; font-size: clamp(1.8rem, 4vw, 2.5rem);">Stay Updated</h2>
+                <p style="margin-bottom: 2rem; font-size: clamp(1rem, 3vw, 1.2rem);">Get notified about upcoming seminars, workshops, and important announcements</p>
                 <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
                     <input type="email" placeholder="Enter your email address" required>
                     <button type="submit" class="btn btn-secondary">Subscribe to Updates</button>
@@ -663,6 +888,14 @@
                         <li><a href="#past-seminars">Seminar Archive</a></li>
                         <li><a href="https://2026.icomaas.com" target="_blank">Main Conference Website</a></li>
                     </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <p>
+                        <a href="#" style="margin-right: 1rem;"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" style="margin-right: 1rem;"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+                    </p>
                 </div>
             </div>
             <div class="copyright">
