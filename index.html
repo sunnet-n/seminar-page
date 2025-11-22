@@ -481,6 +481,50 @@ header {
             overflow-wrap: break-word;
             max-width: 90%;
         }
+        /* Committee Members Styles */
+.committee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.member {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.member-avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.member-avatar img:hover {
+    transform: scale(1.05);
+}
+
+.member h4 {
+    margin: 1rem 0 0.5rem;
+    color: #2c3e50;
+}
+
+.member p {
+    color: #666;
+    font-size: 0.9rem;
+}
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -831,28 +875,34 @@ header {
         </section>
 
         <!-- New Committee Section -->
-        <section id="organizers" style="background: #f8f9fa; padding: 3rem 0; border-radius: 15px; margin: 2rem 0;">
-            <div class="container">
-                <h2 class="section-title">Organizing Committee</h2>
-                <div class="committee-grid">
-                    <div class="member">
-                        <div class="member-avatar">👨‍🏫</div>
-                        <h4>Prof. Dr. Yusuf ZEREN</h4>
-                        <p style="color: #666;">Conference Chair</p>
-                    </div>
-                    <div class="member">
-                        <div class="member-avatar">👨‍🔬</div>
-                        <h4>Dr. Sunnet AVEZOV</h4>
-                        <p style="color: #666;">Program Coordinator</p>
-                    </div>
-                    <div class="member">
-                        <div class="member-avatar">👨‍💻</div>
-                        <h4>Dr. Elif DEMİR</h4>
-                        <p style="color: #666;">Technical Chair</p>
-                    </div>
+       <section id="organizers" style="background: #f8f9fa; padding: 3rem 0; border-radius: 15px; margin: 2rem 0;">
+    <div class="container">
+        <h2 class="section-title">Organizing Committee</h2>
+        <div class="committee-grid">
+            <div class="member">
+                <div class="member-avatar">
+                    <img src="images/yusuf_zeren.jpg" alt="Prof. Dr. Yusuf ZEREN">
                 </div>
+                <h4>Prof. Dr. Yusuf ZEREN</h4>
+                <p style="color: #666;">Conference Chair</p>
             </div>
-        </section>
+            <div class="member">
+                <div class="member-avatar">
+                    <img src="images/sunnet_avezov.jpg" alt="Dr. Sunnet AVEZOV">
+                </div>
+                <h4>Dr. Sunnet AVEZOV</h4>
+                <p style="color: #666;">Program Coordinator</p>
+            </div>
+            <div class="member">
+                <div class="member-avatar">
+                    <img src="images/Elif_photo.jpg" alt="Dr. Elif DEMİR">
+                </div>
+                <h4>Dr. Elif DEMİR</h4>
+                <p style="color: #666;">Technical Chair</p>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
 
     <!-- Newsletter Section -->
@@ -976,6 +1026,7 @@ header {
     </script>
 </body>
 </html>
+
 
 
 
