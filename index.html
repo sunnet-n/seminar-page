@@ -40,21 +40,20 @@
         }
         
         /* Header Styles */
-      /* Header Styles */
-header {
-    background: linear-gradient(rgba(26, 42, 108, 0.20), rgba(44, 62, 143, 0.20)), 
-               url('images/kar_arkaplan.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    padding: 2.5rem 0;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
+        header {
+            background: linear-gradient(rgba(26, 42, 108, 0.20), rgba(44, 62, 143, 0.20)), 
+                       url('images/kar_arkaplan.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
 
         header::before {
             content: '';
@@ -357,7 +356,7 @@ header {
 
         .brochure-frame {
             background: transparent;
-            padding: 15px;
+            padding: 20px; /* Increased from 15px */
             display: inline-block;
             max-width: 95%;
             border-radius: 15px;
@@ -378,20 +377,23 @@ header {
             opacity: 0.95;
         }
 
+        /* Updated Brochure Image Styles */
         .hero img {
             max-width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
-            max-height: 70vh;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-height: 80vh; /* Increased from 70vh to make it larger */
+            border-radius: 20px; /* Added rounded corners - increased from 10px */
+            box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.15), /* Subtle shadow on bottom-right */
+                        0 10px 30px rgba(0, 0, 0, 0.1); /* Maintain some overall shadow */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .image-link:hover img {
             transform: scale(1.03);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            box-shadow: 12px 12px 35px rgba(0, 0, 0, 0.2), /* Enhanced shadow on hover */
+                        0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .image-link::after {
@@ -482,49 +484,49 @@ header {
             max-width: 90%;
         }
         /* Committee Members Styles */
-.committee-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
 
-.member {
-    text-align: center;
-    padding: 1.5rem;
-}
+        .member {
+            text-align: center;
+            padding: 1.5rem;
+        }
 
-.member-avatar {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 1rem;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
+        .member-avatar {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-.member-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.3s ease;
-}
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
 
-.member-avatar img:hover {
-    transform: scale(1.05);
-}
+        .member-avatar img:hover {
+            transform: scale(1.05);
+        }
 
-.member h4 {
-    margin: 1rem 0 0.5rem;
-    color: #2c3e50;
-}
+        .member h4 {
+            margin: 1rem 0 0.5rem;
+            color: #2c3e50;
+        }
 
-.member p {
-    color: #666;
-    font-size: 0.9rem;
-}
+        .member p {
+            color: #666;
+            font-size: 0.9rem;
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -1026,18 +1028,3 @@ header {
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
